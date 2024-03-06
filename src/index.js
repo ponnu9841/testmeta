@@ -9,8 +9,8 @@ import { hydrate, render } from "react-dom";
 
 const APP = (
   <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <App />
+  </HelmetProvider>
 )
  
 const rootElement = document.getElementById("root");
