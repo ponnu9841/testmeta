@@ -7,6 +7,7 @@ import { WhatsappShareButton } from "react-share";
 function App() {
 	const [data, setData] = React.useState(null);
 	const [selectedItem, setSelectedItem] = React.useState(null);
+	const [url, setUrl] = React.useState(null)
 
 	React.useEffect(() => {
 		axios.get("https://reqres.in/api/users?page=1").then((res) => {
@@ -15,6 +16,7 @@ function App() {
 				setSelectedItem(res.data.data[0]);
 			}
 		});
+		setUrl(window.location.href)
 	}, []);
 
 	return (
@@ -39,8 +41,7 @@ function App() {
 			<div className="App">
 				{data?.map((item, index) => (
 					<div key={index} style={{ margin: '10px 0' }} onClick={() => setSelectedItem(item)}>
-						{console.log(item)}
-						<WhatsappShareButton title={item?.first_name} url={item?.avatar} separator=": ">
+						<WhatsappShareButton title={item?.first_name} url={url?.avatar} separator=": ">
 							Share on whatsapp
 						</WhatsappShareButton>
 					</div>
