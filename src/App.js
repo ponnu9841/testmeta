@@ -39,8 +39,8 @@ function App() {
 			<div className="App">
 				{data?.map((item, index) => (
 					<div key={index} style={{ margin: '10px 0' }} onClick={() => setSelectedItem(item)}>
-						
-						<WhatsappShareButton title={item?.first_name} url={'http://localhost:3000/'} separator=": ">
+						{console.log(item)}
+						<WhatsappShareButton title={item?.first_name} url={item?.avatar} separator=": ">
 							Share on whatsapp
 						</WhatsappShareButton>
 					</div>
